@@ -1,0 +1,212 @@
+{
+  "version": "1.0",
+  "name": "Road Accident Analysis - Professional Dashboard",
+  "description": "Colorful, creative, and insights-driven Power BI dashboard",
+  "pages": [
+    {
+      "name": "Executive Dashboard",
+      "visualizations": [
+        {
+          "type": "card",
+          "title": "Total Crashes",
+          "measure": "Total Crashes",
+          "color": "#1F77B4",
+          "font_size": 44,
+          "icon": "\ud83d\ude97"
+        },
+        {
+          "type": "card",
+          "title": "Fatal Crashes",
+          "measure": "Fatal Crashes",
+          "color": "#D62728",
+          "font_size": 44,
+          "icon": "\u26a0\ufe0f"
+        },
+        {
+          "type": "card",
+          "title": "Total Injuries",
+          "measure": "Total Injuries",
+          "color": "#FF7F0E",
+          "font_size": 44,
+          "icon": "\ud83c\udfe5"
+        },
+        {
+          "type": "card",
+          "title": "Severe Injuries",
+          "measure": "Severe Injuries",
+          "color": "#9467BD",
+          "font_size": 44,
+          "icon": "\ud83d\udea8"
+        },
+        {
+          "type": "column_chart",
+          "title": "\u23f0 Peak Crash Hours",
+          "x_axis": "crash_hour",
+          "y_axis": "Count of crash_date",
+          "color": "#1F77B4"
+        },
+        {
+          "type": "donut_chart",
+          "title": "\ud83c\udf24\ufe0f Weather Conditions",
+          "values": "Count of crash_date",
+          "legend": "weather_condition"
+        },
+        {
+          "type": "bar_chart",
+          "title": "\ud83d\udcc5 Weekly Pattern",
+          "x_axis": "Count of crash_date",
+          "y_axis": "day_name",
+          "color": "#2CA02C"
+        },
+        {
+          "type": "pie_chart",
+          "title": "\ud83d\ude99 Crash Types",
+          "values": "Count of crash_date",
+          "legend": "first_crash_type"
+        }
+      ]
+    },
+    {
+      "name": "Temporal Analysis",
+      "slicers": [
+        {
+          "field": "crash_month",
+          "title": "\ud83d\udcc5 Select Month"
+        },
+        {
+          "field": "weather_condition",
+          "title": "\ud83c\udf24\ufe0f Select Weather"
+        },
+        {
+          "field": "lighting_condition",
+          "title": "\ud83d\udca1 Select Lighting"
+        }
+      ],
+      "visualizations": [
+        {
+          "type": "heatmap",
+          "title": "\ud83d\udd25 Crash Intensity Heatmap",
+          "rows": "day_name",
+          "columns": "crash_hour",
+          "values": "Count of crash_date"
+        },
+        {
+          "type": "line_chart",
+          "title": "\ud83d\udcc8 Monthly Trend",
+          "x_axis": "crash_month",
+          "y_axis": "Count of crash_date",
+          "color": "#1F77B4"
+        },
+        {
+          "type": "combo_chart",
+          "title": "\ud83d\udc80 Crashes vs Fatalities",
+          "x_axis": "crash_month",
+          "column": "Count of crash_date",
+          "line": "Sum of injuries_fatal"
+        }
+      ]
+    },
+    {
+      "name": "Road Conditions",
+      "visualizations": [
+        {
+          "type": "horizontal_bar",
+          "title": "\ud83d\udee3\ufe0f Road Surface",
+          "x_axis": "Count of crash_date",
+          "y_axis": "roadway_surface_cond",
+          "color": "#FF7F0E"
+        },
+        {
+          "type": "clustered_bar",
+          "title": "\ud83d\udca1 Lighting Conditions",
+          "x_axis": "lighting_condition",
+          "y_axis": "Count of crash_date",
+          "series": "injuries_fatal"
+        },
+        {
+          "type": "stacked_bar",
+          "title": "\ud83d\udea6 Road Type & Severity",
+          "x_axis": "trafficway_type",
+          "y_axis": "Count of crash_date",
+          "stack_by": "most_severe_injury"
+        },
+        {
+          "type": "pie_chart",
+          "title": "\u2699\ufe0f Road Defects",
+          "values": "Count of crash_date",
+          "legend": "road_defect"
+        }
+      ]
+    },
+    {
+      "name": "Severity Analysis",
+      "visualizations": [
+        {
+          "type": "stacked_bar_100",
+          "title": "\ud83d\udcca Injury Severity",
+          "x_axis": "crash_type",
+          "y_axis": "Count of crash_date",
+          "stack_by": "most_severe_injury"
+        },
+        {
+          "type": "horizontal_bar",
+          "title": "\ud83d\udea8 Most Dangerous Crashes",
+          "x_axis": "Fatal Rate %",
+          "y_axis": "first_crash_type",
+          "color": "#D62728"
+        },
+        {
+          "type": "horizontal_bar",
+          "title": "\ud83c\udfaf Top Causes",
+          "x_axis": "Count of crash_date",
+          "y_axis": "prim_contributory_cause",
+          "color": "#9467BD"
+        }
+      ]
+    },
+    {
+      "name": "Insights & Recommendations",
+      "insights": [
+        {
+          "title": "\ud83d\udd34 PEAK RISK PERIOD",
+          "content": "Friday-Saturday, 5-6 PM",
+          "subtitle": "7,574 crashes at 5 PM",
+          "color": "#D62728"
+        },
+        {
+          "title": "\ud83d\ude97 MOST COMMON",
+          "content": "Turning Crashes (30.5%)",
+          "subtitle": "30,209 incidents",
+          "color": "#FF7F0E"
+        },
+        {
+          "title": "\u26a0\ufe0f MOST DANGEROUS",
+          "content": "Animal Collisions (5%)",
+          "subtitle": "40 incidents, 2 fatalities",
+          "color": "#9467BD"
+        },
+        {
+          "title": "\u2713 SAFEST",
+          "content": "Daylight (0.10% fatal)",
+          "subtitle": "63,581 crashes",
+          "color": "#2CA02C"
+        }
+      ]
+    }
+  ],
+  "color_palette": {
+    "deep_blue": "#1F77B4",
+    "vibrant_red": "#D62728",
+    "warm_orange": "#FF7F0E",
+    "fresh_green": "#2CA02C",
+    "royal_purple": "#9467BD",
+    "light_blue": "#AEC7E8",
+    "light_red": "#FF9896",
+    "light_orange": "#FFBB78",
+    "light_green": "#98DF8A",
+    "light_purple": "#C5B0D5",
+    "dark_gray": "#2C3E50",
+    "light_gray": "#ECF0F1",
+    "white": "#FFFFFF"
+  }
+}

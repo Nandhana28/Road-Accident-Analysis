@@ -1,0 +1,303 @@
+{
+  "project": "Road Accident Analysis & Mobility Insights",
+  "data_file": "output/cleaned_accidents_data.csv",
+  "total_records": 98890,
+  "total_columns": 27,
+  "measures": {
+    "KPI_Measures": {
+      "Total Crashes": "COUNTA(cleaned_accidents_data[crash_date])",
+      "Fatal Crashes": "SUM(cleaned_accidents_data[injuries_fatal])",
+      "Total Injuries": "SUM(cleaned_accidents_data[injuries_total])",
+      "Severe Injuries": "SUM(cleaned_accidents_data[injuries_incapacitating])",
+      "Fatal Rate": "DIVIDE(SUM(cleaned_accidents_data[injuries_fatal]), COUNTA(cleaned_accidents_data[crash_date]), 0) * 100",
+      "Injury Rate": "DIVIDE(SUM(cleaned_accidents_data[injuries_total]), COUNTA(cleaned_accidents_data[crash_date]), 0) * 100",
+      "Avg Units": "AVERAGE(cleaned_accidents_data[num_units])",
+      "Severe Rate": "DIVIDE(SUM(cleaned_accidents_data[injuries_incapacitating]), SUM(cleaned_accidents_data[injuries_total]), 0) * 100"
+    },
+    "Advanced_Measures": {
+      "Crashes with Injuries": "CALCULATE(COUNTA(cleaned_accidents_data[crash_date]), cleaned_accidents_data[injuries_total] > 0)",
+      "Crashes without Injuries": "CALCULATE(COUNTA(cleaned_accidents_data[crash_date]), cleaned_accidents_data[injuries_total] = 0)",
+      "Avg Injuries per Crash": "AVERAGE(cleaned_accidents_data[injuries_total])",
+      "Incapacitating Rate": "DIVIDE(SUM(cleaned_accidents_data[injuries_incapacitating]), SUM(cleaned_accidents_data[injuries_total]), 0) * 100",
+      "Non-Incapacitating Rate": "DIVIDE(SUM(cleaned_accidents_data[injuries_non_incapacitating]), SUM(cleaned_accidents_data[injuries_total]), 0) * 100"
+    }
+  },
+  "instructions": {
+    "STEP_1_DATA_IMPORT": {
+      "title": "STEP 1: Import Data (15 minutes)",
+      "steps": [
+        "1. Open Power BI Desktop",
+        "2. Click 'Get Data' \u2192 'Text/CSV'",
+        "3. Navigate to: output/cleaned_accidents_data.csv",
+        "4. Click 'Load'",
+        "5. Wait for 98,890 rows to load",
+        "6. Verify all 24 columns are present"
+      ],
+      "verify": "Total rows: 98,890 | Total columns: 24"
+    },
+    "STEP_2_CREATE_MEASURES": {
+      "title": "STEP 2: Create Measures (30 minutes)",
+      "steps": [
+        "1. Right-click on table in Fields pane",
+        "2. Select 'New Measure'",
+        "3. Copy-paste each formula from measures list",
+        "4. Press Enter after each formula",
+        "5. Repeat for all 13 measures"
+      ],
+      "measures": {
+        "KPI_Measures": {
+          "Total Crashes": "COUNTA(cleaned_accidents_data[crash_date])",
+          "Fatal Crashes": "SUM(cleaned_accidents_data[injuries_fatal])",
+          "Total Injuries": "SUM(cleaned_accidents_data[injuries_total])",
+          "Severe Injuries": "SUM(cleaned_accidents_data[injuries_incapacitating])",
+          "Fatal Rate": "DIVIDE(SUM(cleaned_accidents_data[injuries_fatal]), COUNTA(cleaned_accidents_data[crash_date]), 0) * 100",
+          "Injury Rate": "DIVIDE(SUM(cleaned_accidents_data[injuries_total]), COUNTA(cleaned_accidents_data[crash_date]), 0) * 100",
+          "Avg Units": "AVERAGE(cleaned_accidents_data[num_units])",
+          "Severe Rate": "DIVIDE(SUM(cleaned_accidents_data[injuries_incapacitating]), SUM(cleaned_accidents_data[injuries_total]), 0) * 100"
+        },
+        "Advanced_Measures": {
+          "Crashes with Injuries": "CALCULATE(COUNTA(cleaned_accidents_data[crash_date]), cleaned_accidents_data[injuries_total] > 0)",
+          "Crashes without Injuries": "CALCULATE(COUNTA(cleaned_accidents_data[crash_date]), cleaned_accidents_data[injuries_total] = 0)",
+          "Avg Injuries per Crash": "AVERAGE(cleaned_accidents_data[injuries_total])",
+          "Incapacitating Rate": "DIVIDE(SUM(cleaned_accidents_data[injuries_incapacitating]), SUM(cleaned_accidents_data[injuries_total]), 0) * 100",
+          "Non-Incapacitating Rate": "DIVIDE(SUM(cleaned_accidents_data[injuries_non_incapacitating]), SUM(cleaned_accidents_data[injuries_total]), 0) * 100"
+        }
+      },
+      "verify": "All 13 measures created with no errors"
+    },
+    "STEP_3_PAGE_1_EXECUTIVE": {
+      "title": "STEP 3: Create Page 1 - Executive Summary (45 minutes)",
+      "kpi_cards": [
+        {
+          "name": "Total Crashes",
+          "measure": "Total Crashes",
+          "color": "Blue (#0078D4)",
+          "font_size": "28pt",
+          "expected_value": "98,890"
+        },
+        {
+          "name": "Fatal Crashes",
+          "measure": "Fatal Crashes",
+          "color": "Red (#E81123)",
+          "font_size": "28pt",
+          "expected_value": "184"
+        },
+        {
+          "name": "Total Injuries",
+          "measure": "Total Injuries",
+          "color": "Orange (#FFB900)",
+          "font_size": "28pt",
+          "expected_value": "37,414"
+        },
+        {
+          "name": "Fatal Rate (%)",
+          "measure": "Fatal Rate",
+          "color": "Purple (#7030A0)",
+          "font_size": "28pt",
+          "expected_value": "0.19%"
+        }
+      ],
+      "visualizations": [
+        {
+          "name": "Crashes by Hour",
+          "type": "Column Chart",
+          "x_axis": "crash_hour",
+          "y_axis": "Count of crash_date",
+          "color": "Blue gradient",
+          "title": "Peak Crash Hours",
+          "insight": "Peak: 5 PM (17:00) - 7,574 crashes"
+        },
+        {
+          "name": "Crashes by Day",
+          "type": "Bar Chart",
+          "x_axis": "Count of crash_date",
+          "y_axis": "day_name",
+          "color": "Green gradient",
+          "title": "Crashes by Day of Week",
+          "insight": "Peak: Sunday - 16,307 crashes"
+        },
+        {
+          "name": "Weather Distribution",
+          "type": "Pie Chart",
+          "values": "Count of crash_date",
+          "legend": "weather_condition",
+          "color": "Multi-color",
+          "title": "Crashes by Weather",
+          "insight": "Clear: 78.6% of crashes"
+        },
+        {
+          "name": "Crash Types",
+          "type": "Donut Chart",
+          "values": "Count of crash_date",
+          "legend": "first_crash_type",
+          "color": "Warm palette",
+          "title": "Crash Type Distribution",
+          "insight": "Turning: 30.5% of crashes"
+        }
+      ]
+    },
+    "STEP_4_PAGE_2_TEMPORAL": {
+      "title": "STEP 4: Create Page 2 - Temporal Analysis (45 minutes)",
+      "slicers": [
+        {
+          "name": "Month Slicer",
+          "field": "crash_month",
+          "style": "Vertical list",
+          "title": "Select Month"
+        },
+        {
+          "name": "Weather Slicer",
+          "field": "weather_condition",
+          "style": "Horizontal buttons",
+          "title": "Select Weather"
+        },
+        {
+          "name": "Lighting Slicer",
+          "field": "lighting_condition",
+          "style": "Horizontal buttons",
+          "title": "Select Lighting"
+        }
+      ],
+      "visualizations": [
+        {
+          "name": "Hourly Heatmap",
+          "type": "Matrix",
+          "rows": "crash_hour",
+          "values": "Count of crash_date, Sum of injuries_fatal",
+          "color_scale": "Red (high) to Green (low)",
+          "title": "Hourly Crash & Fatality Heatmap"
+        },
+        {
+          "name": "Monthly Trend",
+          "type": "Line Chart",
+          "x_axis": "crash_month",
+          "y_axis": "Count of crash_date",
+          "color": "Dark Blue",
+          "title": "Monthly Crash Trend",
+          "insight": "Peak: June - 8,882 crashes"
+        },
+        {
+          "name": "Day \u00d7 Hour Heatmap",
+          "type": "Matrix",
+          "rows": "day_name",
+          "columns": "crash_hour",
+          "values": "Count of crash_date",
+          "color_scale": "Yellow (low) to Red (high)",
+          "title": "Crash Intensity: Day \u00d7 Hour"
+        }
+      ]
+    },
+    "STEP_5_PAGE_3_ROAD": {
+      "title": "STEP 5: Create Page 3 - Road Conditions (30 minutes)",
+      "visualizations": [
+        {
+          "name": "Road Surface",
+          "type": "Horizontal Bar Chart",
+          "x_axis": "Count of crash_date",
+          "y_axis": "roadway_surface_cond",
+          "color": "Orange gradient",
+          "title": "Crashes by Road Surface",
+          "insight": "Dry: 74.5% of crashes"
+        },
+        {
+          "name": "Trafficway Type",
+          "type": "Stacked Bar Chart",
+          "x_axis": "trafficway_type",
+          "y_axis": "Count of crash_date",
+          "stack_by": "most_severe_injury",
+          "title": "Crashes by Road Type & Severity"
+        },
+        {
+          "name": "Lighting Conditions",
+          "type": "Clustered Bar Chart",
+          "x_axis": "lighting_condition",
+          "y_axis": "Count of crash_date",
+          "series": "injuries_fatal",
+          "color": "Red for fatalities",
+          "title": "Lighting Conditions & Fatalities",
+          "insight": "Darkness: 0.37% fatal rate"
+        },
+        {
+          "name": "Road Defects",
+          "type": "Pie Chart",
+          "values": "Count of crash_date",
+          "legend": "road_defect",
+          "title": "Road Defect Distribution"
+        }
+      ]
+    },
+    "STEP_6_PAGE_4_SEVERITY": {
+      "title": "STEP 6: Create Page 4 - Severity Analysis (30 minutes)",
+      "visualizations": [
+        {
+          "name": "Injury Severity",
+          "type": "100% Stacked Bar Chart",
+          "x_axis": "crash_type",
+          "y_axis": "Count of crash_date",
+          "stack_by": "most_severe_injury",
+          "colors": "Red, Orange, Yellow, Green",
+          "title": "Injury Severity by Crash Type"
+        },
+        {
+          "name": "Injuries Distribution",
+          "type": "Histogram",
+          "x_axis": "injuries_total (binned)",
+          "y_axis": "Count of crash_date",
+          "color": "Purple gradient",
+          "title": "Distribution of Injuries per Crash"
+        },
+        {
+          "name": "Top Contributory Causes",
+          "type": "Horizontal Bar Chart",
+          "x_axis": "Count of crash_date",
+          "y_axis": "prim_contributory_cause (top 10)",
+          "color": "Teal gradient",
+          "title": "Top 10 Contributory Causes"
+        }
+      ]
+    },
+    "STEP_7_FORMATTING": {
+      "title": "STEP 7: Format & Polish (30 minutes)",
+      "color_scheme": {
+        "Primary": "Blue (#0078D4)",
+        "Danger": "Red (#E81123)",
+        "Warning": "Orange (#FFB900)",
+        "Success": "Green (#107C10)",
+        "Accent": "Purple (#7030A0)"
+      },
+      "formatting_steps": [
+        "1. Set consistent font: Segoe UI",
+        "2. Set font sizes: 11pt (body), 14pt (titles), 28pt (KPIs)",
+        "3. Apply color scheme to all visuals",
+        "4. Add titles to all visualizations",
+        "5. Add data labels where appropriate",
+        "6. Align visuals in grid layout",
+        "7. Enable cross-filtering on all pages"
+      ]
+    },
+    "STEP_8_SAVE_PUBLISH": {
+      "title": "STEP 8: Save & Publish (15 minutes)",
+      "steps": [
+        "1. File \u2192 Save As",
+        "2. Name: Road_Accident_Analysis.pbix",
+        "3. Location: Project root folder",
+        "4. Home \u2192 Publish",
+        "5. Select workspace",
+        "6. Get sharing link",
+        "7. Share with stakeholders"
+      ]
+    }
+  },
+  "key_insights": {
+    "total_crashes": 98890,
+    "fatal_crashes": 184,
+    "total_injuries": 37414,
+    "peak_hour": "5 PM (17:00)",
+    "peak_day": "Sunday",
+    "peak_month": "June",
+    "most_common_crash": "Turning (30.5%)",
+    "most_dangerous_crash": "Animal collision (5% fatal rate)",
+    "most_common_weather": "Clear (78.6%)",
+    "most_dangerous_lighting": "Darkness (0.37% fatal rate)"
+  }
+}
