@@ -1,0 +1,133 @@
+{
+  "project": "Road Accident Analysis & Mobility Insights",
+  "total_records": 98890,
+  "measures": {
+    "Total Crashes": "COUNTA(cleaned_accidents_data[crash_date])",
+    "Fatal Crashes": "SUM(cleaned_accidents_data[injuries_fatal])",
+    "Total Injuries": "SUM(cleaned_accidents_data[injuries_total])",
+    "Severe Injuries": "SUM(cleaned_accidents_data[injuries_incapacitating])",
+    "Fatal Rate %": "DIVIDE(SUM(cleaned_accidents_data[injuries_fatal]), COUNTA(cleaned_accidents_data[crash_date]), 0) * 100",
+    "Injury Rate %": "DIVIDE(SUM(cleaned_accidents_data[injuries_total]), COUNTA(cleaned_accidents_data[crash_date]), 0) * 100",
+    "Avg Units": "AVERAGE(cleaned_accidents_data[num_units])",
+    "Severe Rate %": "DIVIDE(SUM(cleaned_accidents_data[injuries_incapacitating]), SUM(cleaned_accidents_data[injuries_total]), 0) * 100",
+    "Crashes with Injuries": "CALCULATE(COUNTA(cleaned_accidents_data[crash_date]), cleaned_accidents_data[injuries_total] > 0)",
+    "Injury-Free Crashes": "CALCULATE(COUNTA(cleaned_accidents_data[crash_date]), cleaned_accidents_data[injuries_total] = 0)"
+  },
+  "charts": [
+    {
+      "name": "Total Crashes (Card)",
+      "type": "Card",
+      "measure": "Total Crashes",
+      "color": "Blue (#1F77B4)",
+      "font_size": "44pt"
+    },
+    {
+      "name": "Fatal Crashes (Card)",
+      "type": "Card",
+      "measure": "Fatal Crashes",
+      "color": "Red (#D62728)",
+      "font_size": "44pt"
+    },
+    {
+      "name": "Total Injuries (Card)",
+      "type": "Card",
+      "measure": "Total Injuries",
+      "color": "Orange (#FF7F0E)",
+      "font_size": "44pt"
+    },
+    {
+      "name": "Severe Injuries (Card)",
+      "type": "Card",
+      "measure": "Severe Injuries",
+      "color": "Purple (#9467BD)",
+      "font_size": "44pt"
+    },
+    {
+      "name": "Crashes by Hour",
+      "type": "Column Chart",
+      "x_axis": "crash_hour",
+      "y_axis": "Count of crash_date",
+      "color": "Blue gradient",
+      "title": "Peak Crash Hours"
+    },
+    {
+      "name": "Crashes by Day",
+      "type": "Bar Chart",
+      "x_axis": "Count of crash_date",
+      "y_axis": "day_name",
+      "color": "Green gradient",
+      "title": "Crashes by Day of Week"
+    },
+    {
+      "name": "Weather Distribution",
+      "type": "Pie Chart",
+      "values": "Count of crash_date",
+      "legend": "weather_condition",
+      "title": "Crashes by Weather"
+    },
+    {
+      "name": "Crash Types",
+      "type": "Donut Chart",
+      "values": "Count of crash_date",
+      "legend": "first_crash_type",
+      "title": "Crash Type Distribution"
+    },
+    {
+      "name": "Road Surface Impact",
+      "type": "Horizontal Bar Chart",
+      "x_axis": "Count of crash_date",
+      "y_axis": "roadway_surface_cond",
+      "color": "Orange gradient",
+      "title": "Crashes by Road Surface"
+    },
+    {
+      "name": "Lighting Conditions",
+      "type": "Clustered Bar Chart",
+      "x_axis": "lighting_condition",
+      "y_axis": "Count of crash_date",
+      "series": "injuries_fatal",
+      "title": "Lighting Conditions & Fatalities"
+    },
+    {
+      "name": "Injury Severity",
+      "type": "100% Stacked Bar Chart",
+      "x_axis": "crash_type",
+      "y_axis": "Count of crash_date",
+      "stack_by": "most_severe_injury",
+      "title": "Injury Severity by Crash Type"
+    },
+    {
+      "name": "Top Contributory Causes",
+      "type": "Horizontal Bar Chart",
+      "x_axis": "Count of crash_date",
+      "y_axis": "prim_contributory_cause (top 10)",
+      "color": "Purple gradient",
+      "title": "Top 10 Contributory Causes"
+    }
+  ],
+  "insights": [
+    "Peak Crash Hour: 17:00 with 7,574 crashes",
+    "Peak Crash Day: Sunday with 16,307 crashes",
+    "Fatal Crash Rate: 0.19%",
+    "Injury Rate: 37.83%",
+    "Most Common Crash Type: TURNING (30,209 crashes)",
+    "Most Dangerous Weather: OTHER"
+  ],
+  "colors": {
+    "Primary": "#1F77B4 (Deep Blue)",
+    "Danger": "#D62728 (Vibrant Red)",
+    "Warning": "#FF7F0E (Warm Orange)",
+    "Success": "#2CA02C (Fresh Green)",
+    "Accent": "#9467BD (Royal Purple)"
+  },
+  "data_sources": [
+    "output/cleaned_accidents_data.csv - Main dataset (98,890 records)",
+    "output/powerbi_hourly.csv - Hourly crash patterns",
+    "output/powerbi_daily.csv - Daily crash patterns",
+    "output/powerbi_weather.csv - Weather impact analysis",
+    "output/powerbi_lighting.csv - Lighting condition analysis",
+    "output/powerbi_crash_type.csv - Crash type risk analysis",
+    "output/powerbi_surface.csv - Road surface analysis",
+    "output/powerbi_trafficway.csv - Trafficway type analysis"
+  ]
+}

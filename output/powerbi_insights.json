@@ -1,0 +1,261 @@
+{
+  "kpis": {
+    "total_crashes": 98890,
+    "fatal_crashes": 184,
+    "total_injuries": 37414,
+    "incapacitating_injuries": 3729,
+    "avg_units_per_crash": 2.06,
+    "fatal_rate_percent": 0.19,
+    "injury_rate_percent": 37.83,
+    "severe_injury_rate_percent": 3.77
+  },
+  "temporal": {
+    "peak_hour": 17,
+    "peak_hour_crashes": 7574,
+    "peak_hour_fatals": 11,
+    "peak_day": "Sunday",
+    "peak_month": 6,
+    "hourly_distribution": {
+      "0": 2102,
+      "1": 1806,
+      "2": 1445,
+      "3": 1113,
+      "4": 1045,
+      "5": 1319,
+      "6": 2183,
+      "7": 4400,
+      "8": 5277,
+      "9": 4461,
+      "10": 4195,
+      "11": 4794,
+      "12": 5618,
+      "13": 5663,
+      "14": 6332,
+      "15": 7537,
+      "16": 7525,
+      "17": 7574,
+      "18": 6324,
+      "19": 4583,
+      "20": 3852,
+      "21": 3570,
+      "22": 3348,
+      "23": 2824
+    },
+    "daily_distribution": {
+      "1": 12022,
+      "2": 13188,
+      "3": 14093,
+      "4": 14090,
+      "5": 14563,
+      "6": 16307,
+      "7": 14627
+    },
+    "monthly_distribution": {
+      "1": 7842,
+      "2": 7370,
+      "3": 7479,
+      "4": 7604,
+      "5": 8762,
+      "6": 8882,
+      "7": 8881,
+      "8": 8434,
+      "9": 8346,
+      "10": 8786,
+      "11": 8110,
+      "12": 8394
+    }
+  },
+  "weather": {
+    "distribution": {
+      "CLEAR": 77754,
+      "RAIN": 10353,
+      "CLOUDY/OVERCAST": 3615,
+      "SNOW": 3336,
+      "Unknown": 2913,
+      "OTHER": 304,
+      "FREEZING RAIN/DRIZZLE": 221,
+      "FOG/SMOKE/HAZE": 163,
+      "SLEET/HAIL": 158,
+      "BLOWING SNOW": 58,
+      "SEVERE CROSS WIND GATE": 14,
+      "BLOWING SAND, SOIL, DIRT": 1
+    },
+    "fatal_rates": {
+      "CLEAR": 0.19,
+      "RAIN": 0.18,
+      "CLOUDY/OVERCAST": 0.22,
+      "SNOW": 0.03,
+      "Unknown": 0.07,
+      "OTHER": 0.0,
+      "FREEZING RAIN/DRIZZLE": 0.45,
+      "FOG/SMOKE/HAZE": 0.61,
+      "SLEET/HAIL": 0.0,
+      "BLOWING SNOW": 0.0,
+      "SEVERE CROSS WIND GATE": 7.14,
+      "BLOWING SAND, SOIL, DIRT": 0.0
+    },
+    "injury_rates": {
+      "CLEAR": 38.6,
+      "RAIN": 40.46,
+      "CLOUDY/OVERCAST": 36.54,
+      "SNOW": 30.1,
+      "Unknown": 15.62,
+      "OTHER": 51.64,
+      "FREEZING RAIN/DRIZZLE": 45.7,
+      "FOG/SMOKE/HAZE": 47.24,
+      "SLEET/HAIL": 43.67,
+      "BLOWING SNOW": 32.76,
+      "SEVERE CROSS WIND GATE": 42.86,
+      "BLOWING SAND, SOIL, DIRT": 0.0
+    },
+    "most_dangerous": "SEVERE CROSS WIND GATE",
+    "most_common": "CLEAR"
+  },
+  "road_conditions": {
+    "surface_distribution": {
+      "DRY": 73653,
+      "WET": 15780,
+      "Unknown": 5597,
+      "SNOW OR SLUSH": 3018,
+      "ICE": 618,
+      "OTHER": 206,
+      "SAND, MUD, DIRT": 18
+    },
+    "surface_fatal_rates": {
+      "DRY": 0.2,
+      "WET": 0.17,
+      "Unknown": 0.07,
+      "SNOW OR SLUSH": 0.07,
+      "ICE": 0.16,
+      "OTHER": 0.0,
+      "SAND, MUD, DIRT": 0.0
+    },
+    "trafficway_distribution": {
+      "NOT DIVIDED": 37260,
+      "FOUR WAY": 22257,
+      "DIVIDED - W/MEDIAN (NOT RAISED)": 16383,
+      "ONE-WAY": 5909,
+      "DIVIDED - W/MEDIAN BARRIER": 5226,
+      "T-INTERSECTION": 4247,
+      "OTHER": 2344,
+      "CENTER TURN LANE": 1452,
+      "UNKNOWN INTERSECTION TYPE": 871,
+      "FIVE POINT, OR MORE": 500,
+      "Unknown": 480,
+      "Y-INTERSECTION": 437,
+      "TRAFFIC ROUTE": 345,
+      "ALLEY": 342,
+      "NOT REPORTED": 259,
+      "PARKING LOT": 205,
+      "RAMP": 177,
+      "DRIVEWAY": 70,
+      "ROUNDABOUT": 68,
+      "L-INTERSECTION": 58
+    },
+    "most_dangerous_surface": "DRY",
+    "most_common_surface": "DRY"
+  },
+  "crash_types": {
+    "first_crash_type_distribution": {
+      "TURNING": 30209,
+      "ANGLE": 24685,
+      "REAR END": 20218,
+      "SIDESWIPE SAME DIRECTION": 9357,
+      "PEDESTRIAN": 4222,
+      "PEDALCYCLIST": 2421,
+      "PARKED MOTOR VEHICLE": 2277,
+      "FIXED OBJECT": 2264,
+      "SIDESWIPE OPPOSITE DIRECTION": 876,
+      "HEAD ON": 854,
+      "REAR TO FRONT": 538,
+      "REAR TO SIDE": 374,
+      "OTHER OBJECT": 350,
+      "OTHER NONCOLLISION": 131,
+      "OVERTURNED": 46,
+      "ANIMAL": 40,
+      "REAR TO REAR": 24,
+      "TRAIN": 4
+    },
+    "first_crash_type_fatal_rates": {
+      "TURNING": 0.1,
+      "ANGLE": 0.23,
+      "REAR END": 0.02,
+      "SIDESWIPE SAME DIRECTION": 0.01,
+      "PEDESTRIAN": 1.07,
+      "PEDALCYCLIST": 0.33,
+      "PARKED MOTOR VEHICLE": 0.13,
+      "FIXED OBJECT": 1.19,
+      "SIDESWIPE OPPOSITE DIRECTION": 0.34,
+      "HEAD ON": 0.12,
+      "REAR TO FRONT": 0.0,
+      "REAR TO SIDE": 0.0,
+      "OTHER OBJECT": 0.29,
+      "OTHER NONCOLLISION": 0.0,
+      "OVERTURNED": 0.0,
+      "ANIMAL": 5.0,
+      "REAR TO REAR": 0.0,
+      "TRAIN": 0.0
+    },
+    "crash_type_distribution": {
+      "INJURY AND / OR TOW DUE TO CRASH": 43404,
+      "NO INJURY / DRIVE AWAY": 55486
+    },
+    "most_common_crash_type": "TURNING",
+    "most_dangerous_crash_type": "ANIMAL"
+  },
+  "severity": {
+    "injury_breakdown": {
+      "fatal": 184,
+      "incapacitating": 3729,
+      "non_incapacitating": 21821,
+      "reported_not_evident": 11680,
+      "no_indication": 222101
+    },
+    "injury_distribution": {
+      "1": 18058,
+      "2": 4786,
+      "3": 1670,
+      "4": 596,
+      "5": 243,
+      "6": 97,
+      "7": 33,
+      "8": 16,
+      "9": 7,
+      "11": 3
+    },
+    "crashes_with_injuries": 25518,
+    "crashes_without_injuries": 73372,
+    "avg_injuries_per_crash": 0.38
+  },
+  "high_risk": {
+    "lighting_distribution": {
+      "DARKNESS": 3478,
+      "DARKNESS, LIGHTED ROAD": 25230,
+      "DAWN": 1711,
+      "DAYLIGHT": 63581,
+      "DUSK": 2959,
+      "Unknown": 1931
+    },
+    "lighting_fatal_rates": {
+      "DARKNESS": 0.37,
+      "DARKNESS, LIGHTED ROAD": 0.37,
+      "DAWN": 0.06,
+      "DAYLIGHT": 0.1,
+      "DUSK": 0.3,
+      "Unknown": 0.05
+    },
+    "top_contributory_causes": {
+      "UNABLE TO DETERMINE": 27406,
+      "FAILING TO YIELD RIGHT-OF-WAY": 20275,
+      "FOLLOWING TOO CLOSELY": 9115,
+      "DISREGARDING TRAFFIC SIGNALS": 6922,
+      "IMPROPER TURNING/NO SIGNAL": 5932,
+      "FAILING TO REDUCE SPEED TO AVOID CRASH": 5045,
+      "IMPROPER OVERTAKING/PASSING": 3827,
+      "DISREGARDING STOP SIGN": 3199,
+      "IMPROPER LANE USAGE": 3089,
+      "NOT APPLICABLE": 2487
+    },
+    "most_dangerous_lighting": "DARKNESS"
+  }
+}
